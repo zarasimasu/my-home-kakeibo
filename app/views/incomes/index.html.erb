@@ -1,0 +1,25 @@
+<h2>収入一覧</h2>
+
+<%= link_to "収入の新規登録", :new_income %>
+
+<% if @income.present? %>
+<table>
+	<thead>
+		<tr>
+			<th>金額</th>
+			<th>備考</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @income.each do |income| %>
+			<tr>
+				<td><%= income.value %></td>
+				<td><%= income.description %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+ 
+<% else %>
+	<p>登録されている収入がありません。</p>
+<% end %>
