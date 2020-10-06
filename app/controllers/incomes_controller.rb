@@ -13,6 +13,7 @@ class IncomesController < ApplicationController
 	end
  
 	def edit
+		@income = Income.find(params[:id])
 	end
  
 	def create
