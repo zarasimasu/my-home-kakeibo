@@ -16,7 +16,7 @@
 	<tbody>
 		<% @fixedcost.each do |i| %>
 			<tr>
-				<td><%=  %></td>
+				<td><%= FixedcostCategory.find(i.fixedcost_category_id).name%></td>
 				<td><%= i.year_month.strftime('%Y年%m月') %>
 				<td>¥<%= i.value.to_s(:delimited) %></td>
 				<td><%= i.description %></td>

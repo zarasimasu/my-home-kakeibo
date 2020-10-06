@@ -16,11 +16,23 @@ class FixedcostsController < ApplicationController
 	end
  
 	def create
+		@fixedcost = Fixedcost.new(fixedcost_params)
+		if @fixedcost.save
+			redirect_to fixedcosts_path
+		else
+			render :new
+		end
 	end
  
 	def update
 	end
  
 	def destroy
+	end
+
+	private
+
+	def fixedcost_params
+		params.require(:fixedcost).permit(:fixedcost_category_id, :value, :year_month, :description).merge(user_id: current_user.id)
 	end
 end
