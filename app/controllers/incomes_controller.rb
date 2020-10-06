@@ -14,6 +14,10 @@ class IncomesController < ApplicationController
  
 	def edit
 		@income = Income.find(params[:id])
+		if @income.user_id == current_user.id
+		else
+			redirect_to root_path
+		end
 	end
  
 	def create
@@ -35,6 +39,12 @@ class IncomesController < ApplicationController
 	end
  
 	def destroy
+		@income = Income.find(params[:id])
+		if @income.destroy
+      redirect_to incomes_path
+    else
+      render :index
+    end
 	end
 
 	private

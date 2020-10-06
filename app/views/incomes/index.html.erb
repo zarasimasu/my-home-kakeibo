@@ -21,7 +21,9 @@
 				<td>¥<%= i.value.to_s(:delimited) %></td>
 				<td><%= i.description %></td>
 				<td>
-				<%= link_to "編集", edit_income_path(i.id) %>
+				<%= link_to "編集", edit_income_path(i.id) %> |
+				<%= link_to "削除", income_path(i.id), method: :delete, data: { confirm: "削除しますか？" } %>
+				</td>
 			</tr>
 		<% end %>
 	</tbody>
