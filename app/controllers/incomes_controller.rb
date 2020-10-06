@@ -2,7 +2,7 @@ class IncomesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @income = current_user.incomes.all
+    @income = current_user.incomes.all.order(id: "DESC")
 	end
  
 	def show
