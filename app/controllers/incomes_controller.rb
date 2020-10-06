@@ -26,6 +26,12 @@ class IncomesController < ApplicationController
 	end
  
 	def update
+		@income = Income.find(params[:id])
+		if @income.update(income_params)
+			redirect_to incomes_path
+		else
+			render :edit
+		end
 	end
  
 	def destroy
