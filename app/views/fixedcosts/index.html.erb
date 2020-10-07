@@ -1,0 +1,36 @@
+<h2>固定費一覧</h2>
+
+<%= link_to "固定費の新規登録", :new_fixedcost %>
+
+<% if @fixedcost.present? %>
+<table>
+	<thead>
+		<tr>
+			<th>種類</th>
+			<th>年月</th>
+			<th>金額</th>
+			<th>備考</th>
+			<th>編集｜削除</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @fixedcost.each do |i| %>
+			<tr>
+				<td><%= FixedcostCategory.find(i.fixedcost_category_id).name%></td>
+				<td><%= i.year_month.strftime('%Y年%m月') %>
+				<td>¥<%= i.value.to_s(:delimited) %></td>
+				<td><%= i.description %></td>
+				<td>
+				<%= link_to "編集", edit_fixedcost_path(i.id) %> |
+				<%= link_to "削除", fixedcost_path(i.id), method: :delete, data: { confirm: "削除しますか？" } %>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+ 
+<% else %>
+	<p>登録されている固定費がありません。</p>
+<% end %>
+
+<%= render "shared/footer" %>
