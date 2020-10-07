@@ -29,7 +29,12 @@ class VariablecostsController < ApplicationController
 		end
 	end
  
-	def update
+  def update
+    if @variablecost.update(variablecost_params)
+			redirect_to variablecosts_path
+		else
+			render :edit
+		end
 	end
  
 	def destroy
