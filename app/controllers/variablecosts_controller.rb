@@ -1,5 +1,6 @@
 class VariablecostsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_variablecost, only: [:edit, :update, :destroy]
 
   def index
     @variablecost = current_user.variablecosts.all.order(id: "DESC")
@@ -12,7 +13,11 @@ class VariablecostsController < ApplicationController
     @variablecost = Variablecost.new
 	end
  
-	def edit
+  def edit
+    if @variablecost.user_id == current_user.id
+		else
+			redirect_to root_path
+		end
 	end
  
   def create
@@ -24,7 +29,12 @@ class VariablecostsController < ApplicationController
 		end
 	end
  
-	def update
+  def update
+    if @variablecost.update(variablecost_params)
+			redirect_to variablecosts_path
+		else
+			render :edit
+		end
 	end
  
 	def destroy
@@ -34,5 +44,9 @@ class VariablecostsController < ApplicationController
 
 	def variablecost_params
 		params.require(:variablecost).permit(:variablecost_category_id, :value, :year_month, :description).merge(user_id: current_user.id)
+  end
+  
+  def set_variablecost
+		@variablecost = Variablecost.find(params[:id])
 	end
 end

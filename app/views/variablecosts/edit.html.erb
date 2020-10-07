@@ -1,4 +1,4 @@
-<h2>変動費入力</h2>
+<h2>変動費情報編集画面</h2>
 
 <%= form_with(model: @variablecost, local: true) do |f| %>
 
@@ -8,7 +8,7 @@
     カテゴリー
     <span class="indispensable">必須</span>
   </div>
-  <%= f.collection_select(:variablecost_category_id, VariablecostCategory.all, :id, :name, {}, {class:"select-box", id:"variablecost-category"}) %>
+  <%= f.collection_select(:variablecost_category_id, VariablecostCategory.all, :id, :name, {}, {class:"select-box", id:"fixedcost-category"}) %>
   <div class="year-month">
     年月入力
     <span class="indispensable">必須</span>
