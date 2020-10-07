@@ -30,6 +30,12 @@ class FixedcostsController < ApplicationController
 	end
  
 	def update
+		@fixedcost = Fixedcost.find(params[:id])
+		if @fixedcost.update(fixedcost_params)
+			redirect_to fixedcosts_path
+		else
+			render :edit
+		end
 	end
  
 	def destroy
