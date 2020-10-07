@@ -2,7 +2,8 @@
 
 <%= form_with(model: @fixedcost, local: true) do |f| %>
 
-  
+  <%= render "shared/fixedcost_error_messages", model: f.object %>
+
   <div class="category">
     カテゴリー
     <span class="indispensable">必須</span>
