@@ -8,6 +8,7 @@
       <h2>科目選択</h2>
       <li><%= link_to "収入科目一覧", :incomes %></li>
       <li><%= link_to "固定費科目一覧", :fixedcosts %></li>
+      <li><%= link_to "変動費科目一覧", :variablecosts %></li>
     <% else %>
       <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
       <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
