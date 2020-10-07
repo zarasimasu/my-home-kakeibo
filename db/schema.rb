@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_06_052802) do
+ActiveRecord::Schema.define(version: 2020_10_07_050500) do
 
   create_table "fixedcosts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "fixedcost_category_id", null: false
@@ -47,6 +47,18 @@ ActiveRecord::Schema.define(version: 2020_10_06_052802) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "variablecosts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "variablecost_category_id", null: false
+    t.integer "value", null: false
+    t.string "description"
+    t.date "year_month", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_variablecosts_on_user_id"
+  end
+
   add_foreign_key "fixedcosts", "users"
   add_foreign_key "incomes", "users"
+  add_foreign_key "variablecosts", "users"
 end
