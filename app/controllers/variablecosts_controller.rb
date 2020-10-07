@@ -8,7 +8,8 @@ class VariablecostsController < ApplicationController
 	def show
 	end
  
-	def new
+  def new
+    @variablecost = Variablecost.new
 	end
  
 	def edit
