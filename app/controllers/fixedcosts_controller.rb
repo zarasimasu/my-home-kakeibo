@@ -39,6 +39,12 @@ class FixedcostsController < ApplicationController
 	end
  
 	def destroy
+		@fixedcost = Fixedcost.find(params[:id])
+		if @fixedcost.destroy
+      redirect_to fixedcosts_path
+    else
+      render :index
+    end
 	end
 
 	private
