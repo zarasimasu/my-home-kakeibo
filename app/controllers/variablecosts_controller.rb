@@ -37,7 +37,12 @@ class VariablecostsController < ApplicationController
 		end
 	end
  
-	def destroy
+  def destroy
+    if @variablecost.destroy
+      redirect_to variablecosts_path
+    else
+      render :index
+    end
   end
   
   private
