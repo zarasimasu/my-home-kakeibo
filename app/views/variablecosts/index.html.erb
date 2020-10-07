@@ -1,0 +1,36 @@
+<h2>変動費一覧</h2>
+
+<%= link_to "変動費の新規登録", :new_variablecost %>
+
+<% if @variablecost.present? %>
+<table>
+	<thead>
+		<tr>
+			<th>種類</th>
+			<th>年月</th>
+			<th>金額</th>
+			<th>備考</th>
+			<th>編集｜削除</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @variablecost.each do |i| %>
+			<tr>
+				<td><%# <%= VariablecostCategory.find(i.variablecost_category_id).name%></td>
+				<td><%= i.year_month.strftime('%Y年%m月') %>
+				<td>¥<%= i.value.to_s(:delimited) %></td>
+				<td><%= i.description %></td>
+				<td>
+				<%= link_to "編集", edit_variablecost_path(i.id) %> |
+				<%= link_to "削除", variablecost_path(i.id), method: :delete, data: { confirm: "削除しますか？" } %>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+ 
+<% else %>
+	<p>登録されている固定費がありません。</p>
+<% end %>
+
+<%= render "shared/footer" %>

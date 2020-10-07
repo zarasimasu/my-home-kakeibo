@@ -1,7 +1,8 @@
 class VariablecostsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
+    @variablecost = current_user.variablecosts.all.order(id: "DESC")
 	end
  
 	def show
