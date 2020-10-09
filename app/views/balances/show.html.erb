@@ -1,6 +1,9 @@
 <h2><%= @year_month %>月 月次収支確認</h2>
 
+<%= link_to "収支確認画面に戻る", :balances %>
+
 <h3>収入</h3>
+
 <% if @income.present? %>
   <table>
     <thead>
@@ -29,5 +32,33 @@
   <p>登録されている収入がありません。</p>
 <% end %>
 
+<h3>固定費</h3>
+<% if @fixedcost.present? %>
+  <table>
+    <thead>
+      <tr>
+        <th>種類</th>
+        <th>金額</th>
+        <th>備考</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @fixedcosts.each do |i| %>
+        <tr>
+          <td><%= FixedcostCategory.find(i.fixedcost_category_id).name %></td>
+          <td>¥<%= i.value.to_s(:delimited) %></td>
+          <td><%= i.description %></td>
+        </tr>
+      <% end %>
+      <tr>
+        <td><b>固定費合計</b></td>
+        <td><b><%= @fixedcost_total.to_s(:delimited) %>円</b></td>
+      </tr>
+    </tbody>
+  </table>
+
+<% else %>
+  <p>登録されている固定費がありません。</p>
+<% end %>
 
 <%= render "shared/footer" %>

@@ -1,10 +1,10 @@
 <h2>トップページ</h2>
 
-<div class='nav'>
-  <ul class='lists'>
+<div class="nav">
+  <ul class="lists">
     <% if user_signed_in? %>
       <li><%= link_to current_user.nickname, "#", class: "user-nickname" %></li> 
-      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+      <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout" %></li>
       <h2>科目選択</h2>
       <li><%= link_to "収入科目一覧", :incomes %></li>
       <li><%= link_to "固定費科目一覧", :fixedcosts %></li>
@@ -12,8 +12,8 @@
       <h2>収支確認</h2>
       <li><%= link_to "収支確認画面", :balances %></li>
     <% else %>
-      <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-      <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+      <li><%= link_to "ログイン", new_user_session_path, class: "login" %></li>
+      <li><%= link_to "新規登録", new_user_registration_path, class: "sign-up" %></li>
     <% end %> 
   </ul>
 </div>
