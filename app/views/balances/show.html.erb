@@ -61,4 +61,33 @@
   <p>登録されている固定費がありません。</p>
 <% end %>
 
+<h3>変動費</h3>
+<% if @variablecost.present? %>
+  <table>
+    <thead>
+      <tr>
+        <th>種類</th>
+        <th>金額</th>
+        <th>備考</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @variablecosts.each do |i| %>
+        <tr>
+          <td><%= VariablecostCategory.find(i.variablecost_category_id).name %></td>
+          <td>¥<%= i.value.to_s(:delimited) %></td>
+          <td><%= i.description %></td>
+        </tr>
+      <% end %>
+      <tr>
+        <td><b>変動費合計</b></td>
+        <td><b><%= @variablecost_total.to_s(:delimited) %>円</b></td>
+      </tr>
+    </tbody>
+  </table>
+
+<% else %>
+  <p>登録されている変動費がありません。</p>
+<% end %>
+
 <%= render "shared/footer" %>

@@ -22,5 +22,13 @@ class BalancesController < ApplicationController
     @fixedcost.each do |fixedcost|
       @fixedcost_total += fixedcost
     end
+
+    @variablecosts = current_user.variablecosts.where(year_month: (@year_month + "-01"))
+
+    @variablecost = current_user.variablecosts.where(year_month: (@year_month + "-01")).pluck(:value)
+    @variablecost_total = 0
+    @variablecost.each do |variablecost|
+      @variablecost_total += variablecost
+    end
   end
 end
