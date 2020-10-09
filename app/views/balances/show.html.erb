@@ -1,6 +1,25 @@
 <h2><%= @year_month %>月 月次収支確認</h2>
 
-<%= link_to "収支確認画面に戻る", :balances %>
+<div class="balances_btn">
+  <%= link_to "収支確認画面に戻る", :balances %>
+</div>
+
+<% if @year_month.present? && @fixedcost.present? && @variablecost.present? %>
+  <h2>収支結果</h2>
+  <% if @balance < 0 %>
+    <b><%= @year_month %>月の収支差は<%= @balance.to_s(:delimited) %>円の赤字です！！</b>
+  <% elsif @balance == 0 %>
+    <b><%= @year_month %>月の収支差は±<%= @balance %>円です！！</b>
+  <% else %>
+    <b><%= @year_month %>月の収支差は<%= @balance.to_s(:delimited) %>円の黒字です！！</b>
+  <% end %>
+
+  <div class="balance">
+    <b>収支差:<%= @balance.to_s(:delimited) %> 円</b>
+  </div>
+<% elsif !@year_month.present? %>
+  <b>年月を選択してください</b>
+<% end %>
 
 <h3>収入</h3>
 

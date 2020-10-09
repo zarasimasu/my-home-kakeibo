@@ -30,5 +30,7 @@ class BalancesController < ApplicationController
     @variablecost.each do |variablecost|
       @variablecost_total += variablecost
     end
+
+    @balance = @income_total - (@fixedcost_total + @variablecost_total)
   end
 end
