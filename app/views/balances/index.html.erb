@@ -1,6 +1,10 @@
 <h2>収支確認画面</h2>
 
+<h3>月次収支確認</h3>
+
 <%= form_tag({controller: :balances, action: :show}, {method: :post}) do %>
 	<input type="month" name="year_month">
-	<input type="submit">
+	<input type="submit" value="確認">
 <% end %>
+
+<%= render "shared/footer" %>
