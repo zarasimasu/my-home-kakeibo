@@ -1,4 +1,7 @@
 class Fixedcost < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :fixedcost_category
+
   validates :fixedcost_category_id, numericality: { other_than: 1 }
   validates :value, format: { with: /\A[0-9]+\z/ }
 
@@ -7,5 +10,4 @@ class Fixedcost < ApplicationRecord
   end
 
   belongs_to :user
-  belongs_to_active_hash :fixedcost_category
 end
