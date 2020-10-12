@@ -1,6 +1,12 @@
 <h2>収入一覧</h2>
 
-<%= link_to "収入の新規登録", :new_income %>
+<div class="new_value">
+	<b><%= link_to "収入の新規登録", :new_income %></b>
+</div>
+
+<div class="balances_btn">
+	<%= link_to "収支確認画面に移動する", :balances %>
+</div>
 
 <% if @income.present? %>
 <table>

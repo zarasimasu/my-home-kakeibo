@@ -1,6 +1,12 @@
 <h2>変動費一覧</h2>
 
-<%= link_to "変動費の新規登録", :new_variablecost %>
+<div class="new_value">
+	<b><%= link_to "変動費の新規登録", :new_variablecost %></b>
+</div>
+
+<div class="balances_btn">
+	<%= link_to "収支確認画面に移動する", :balances %>
+</div>
 
 <% if @variablecost.present? %>
 <table>

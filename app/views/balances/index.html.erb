@@ -1,0 +1,22 @@
+<h2>収支確認画面</h2>
+
+<h3>月次収支確認</h3>
+
+<%= form_tag({controller: :balances, action: :show}, {method: :post}) do %>
+	<input type="month" name="year_month">
+	<input type="submit" value="確認">
+<% end %>
+
+<h2>年間収支確認</h2>
+
+<%= form_tag({controller: :balances, action: :show_year}, {method: :post}) do %>
+	<input type="hidden" name="year">
+		<select name="year">
+ 			<% 2019.upto(2030) do |n| %>
+				<option value=<%= n.to_s %>><%= n %></option>
+			<% end %>
+		</select>
+	<input type="submit" value="確認" >
+<% end %>
+
+<%= render "shared/footer" %>
