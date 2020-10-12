@@ -6,6 +6,6 @@ class Income < ApplicationRecord
     validates :value, :year_month
   end
 
-  belongs_to_active_hash :income_category
   belongs_to :user
+  belongs_to_active_hash :income_category
 end

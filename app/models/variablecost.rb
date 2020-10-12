@@ -6,6 +6,6 @@ class Variablecost < ApplicationRecord
     validates :value, :year_month
   end
 
-  belongs_to_active_hash :variablecost_category
   belongs_to :user
+  belongs_to_active_hash :variablecost_category
 end

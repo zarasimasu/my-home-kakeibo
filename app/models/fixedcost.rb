@@ -6,6 +6,6 @@ class Fixedcost < ApplicationRecord
     validates :value, :year_month
   end
 
-  belongs_to_active_hash :fixedcost_category
   belongs_to :user
+  belongs_to_active_hash :fixedcost_category
 end
