@@ -33,4 +33,31 @@ class BalancesController < ApplicationController
 
     @balance = @income_total - (@fixedcost_total + @variablecost_total)
   end
+
+  def show_year
+    @year = params[:year]
+    months = ["-01", "-02", "-03", "-04", "-05", "-06", "-07", "-08", "-09", "-10", "-11", "-12" ]
+    @year_months = months.map do |month|
+      @year + month + "-01"
+    end
+
+    @incomes = current_user.incomes.where(year_month: @year_months).pluck(:value)
+    @income_total = 0
+    @incomes.each do |income|
+      @income_total += income
+    end
+
+    @fixedcosts = current_user.fixedcosts.where(year_month: @year_months).pluck(:value)
+    @fixedcost_total = 0
+    @fixedcosts.each do |fixedcost|
+      @fixedcost_total += fixedcost
+    end
+
+    @variablecost = current_user.variablecosts.where(year_month: @year_months).pluck(:value)
+    @variablecost_total = 0
+    @variablecost.each do |variablecost|
+      @variablecost_total += variablecost
+    end
+
+  end
 end
