@@ -1,5 +1,22 @@
 <h2><%= @year %>年 年間収支確認</h2>
 
+<div class="balances_btn">
+  <%= link_to "収支確認画面に戻る", :balances %>
+</div>
+
+<h2>収支結果</h2>
+<% if @balance < 0 %>
+  <b><%= @year %>年の収支差は<%= @balance.to_s(:delimited) %>円の赤字です！！</b>
+<% elsif @balance == 0 %>
+  <b><%= @year %>年の収支差は±<%= @balance %>円です！！</b>
+<% else %>
+  <b><%= @year %>年の収支差は<%= @balance.to_s(:delimited) %>円の黒字です！！</b>
+<% end %>
+
+<div class="balance">
+  <b>収支差:<%= @balance.to_s(:delimited) %> 円</b>
+</div>
+
 <h3>収入合計</h3>
 
 <b><%= @income_total.to_s(:delimited) %> 円</b>
@@ -11,3 +28,5 @@
 <h3>変動費合計</h3>
 
 <b><%= @variablecost_total.to_s(:delimited) %> 円</b>
+
+<%= render "shared/footer" %>
