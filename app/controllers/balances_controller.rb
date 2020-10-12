@@ -49,6 +49,8 @@ class BalancesController < ApplicationController
       @income_total += income
     end
 
+    @fixedcost_chart = current_user.fixedcosts.where(year_month: @year_months)
+
     @fixedcosts = current_user.fixedcosts.where(year_month: @year_months).pluck(:value)
     @fixedcost_total = 0
     @fixedcosts.each do |fixedcost|

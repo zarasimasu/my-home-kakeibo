@@ -25,12 +25,25 @@
   xtitle: "Month",
   ytitle: "value",
   thousands: ",",
-  width: "250px",
+  width: "800px",
+  height: "300px",
   colors: ["blue"]
   %>
 </div>
 
 <h3>固定費合計:<%= @fixedcost_total.to_s(:delimited) %> 円</h3>
+<div class="chart">
+  <div class="chart_title"><b>年間固定費グラフ</b></div>
+  <%= column_chart @fixedcost_chart.group(:year_month).sum(:value),
+  label: "固定費",
+  xtitle: "Month",
+  ytitle: "value",
+  thousands: ",",
+  width: "800px",
+  height: "300px",
+  colors: ["red"]
+  %>
+</div>
 
 <h3>変動費合計:<%= @variablecost_total.to_s(:delimited) %> 円</h3>
 
