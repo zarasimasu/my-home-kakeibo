@@ -41,6 +41,8 @@ class BalancesController < ApplicationController
       @year + month + "-01"
     end
 
+    @income_chart = current_user.incomes.where(year_month: @year_months)
+
     @incomes = current_user.incomes.where(year_month: @year_months).pluck(:value)
     @income_total = 0
     @incomes.each do |income|
