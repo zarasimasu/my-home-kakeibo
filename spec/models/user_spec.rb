@@ -5,24 +5,24 @@ RSpec.describe User, type: :model do
     @user = build(:user)
   end
 
-  describe 'バリデーション' do
-    it 'すべての値が設定されていれば登録できる' do
+  describe "バリデーション" do
+    it "すべての値が設定されていれば登録できる" do
       expect(@user).to be_valid
     end
 
-    it 'nicknameが空だと登録できない' do
+    it "nicknameが空だと登録できない" do
       @user.nickname = nil
       @user.valid?
       expect(@user.errors.full_messages).to include("Nickname can't be blank")
     end
 
-    it 'emailが空だと登録できない' do
+    it "emailが空だと登録できない" do
       @user.email = nil
       @user.valid?
       expect(@user.errors.full_messages).to include("Email can't be blank")
     end
 
-    it 'emailに@がなければ登録できない' do
+    it "emailに@がなければ登録できない" do
       @user.email = "abcd"
       @user.valid?
       expect(@user.errors.full_messages).to include("Email is invalid")
