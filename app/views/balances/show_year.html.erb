@@ -17,7 +17,7 @@
   <b>収支差:<%= @balance.to_s(:delimited) %> 円</b>
 </div>
 
-<h3>収入合計:<%= @income_total.to_s(:delimited) %> 円</h3>
+<h4>収入合計:<%= @income_total.to_s(:delimited) %> 円</h4>
 <div class="chart">
   <div class="chart_title"><b>年間収入グラフ</b></div>
   <%= column_chart @income_chart.group(:year_month).sum(:value),
@@ -27,11 +27,11 @@
   thousands: ",",
   width: "800px",
   height: "300px",
-  colors: ["blue"]
+  colors: ["#008db7"]
   %>
 </div>
 
-<h3>固定費合計:<%= @fixedcost_total.to_s(:delimited) %> 円</h3>
+<h4>固定費合計:<%= @fixedcost_total.to_s(:delimited) %> 円</h4>
 <div class="chart">
   <div class="chart_title"><b>年間固定費グラフ</b></div>
   <%= column_chart @fixedcost_chart.group(:year_month).sum(:value),
@@ -41,10 +41,22 @@
   thousands: ",",
   width: "800px",
   height: "300px",
-  colors: ["red"]
+  colors: ["#a22041"]
   %>
 </div>
 
-<h3>変動費合計:<%= @variablecost_total.to_s(:delimited) %> 円</h3>
+<h4>変動費合計:<%= @variablecost_total.to_s(:delimited) %> 円</h4>
+<div class="chart">
+  <div class="chart_title"><b>年間変動費グラフ</b></div>
+  <%= column_chart @variablecost_chart.group(:year_month).sum(:value),
+  label: "変動費",
+  xtitle: "Month",
+  ytitle: "value",
+  thousands: ",",
+  width: "800px",
+  height: "300px",
+  colors: ["#a22041"]
+  %>
+</div>
 
 <%= render "shared/footer" %>
