@@ -41,21 +41,27 @@ class BalancesController < ApplicationController
       @year + month + "-01"
     end
 
-    @incomes = current_user.incomes.where(year_month: @year_months).pluck(:value)
+    @income_chart = current_user.incomes.where(year_month: @year_months)
+
+    @incomes = @income_chart.pluck(:value)
     @income_total = 0
     @incomes.each do |income|
       @income_total += income
     end
 
-    @fixedcosts = current_user.fixedcosts.where(year_month: @year_months).pluck(:value)
+    @fixedcost_chart = current_user.fixedcosts.where(year_month: @year_months)
+
+    @fixedcosts = @fixedcost_chart.pluck(:value)
     @fixedcost_total = 0
     @fixedcosts.each do |fixedcost|
       @fixedcost_total += fixedcost
     end
 
-    @variablecost = current_user.variablecosts.where(year_month: @year_months).pluck(:value)
+    @variablecost_chart = current_user.variablecosts.where(year_month: @year_months)
+
+    @variablecosts = @variablecost_chart.pluck(:value)
     @variablecost_total = 0
-    @variablecost.each do |variablecost|
+    @variablecosts.each do |variablecost|
       @variablecost_total += variablecost
     end
 
