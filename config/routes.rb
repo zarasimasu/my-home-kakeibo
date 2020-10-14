@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
+  match 'users/:id' => 'users#destroy_user', :via => :delete, :as => :user_destroy_user
+  resources :users
+
   root 'top#index'
 
   get "balances" => "balances#index"
