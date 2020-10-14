@@ -1,21 +1,19 @@
-<h2>トップページ</h2>
+<%= render "shared/header" %>
+<div class="top-contents">
 
-<div class="nav">
-  <ul class="lists">
-    <% if user_signed_in? %>
-      <li><%= link_to current_user.nickname, "#", class: "user-nickname" %></li> 
-      <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout" %></li>
-      <li><%= link_to "退会する", user_destroy_user_path(current_user.id), method: :delete, data: { confirm: "退会しますか？　退会するとアプリ内はデータは削除されます。" } %></li>
-      <h2>科目選択</h2>
-      <li><%= link_to "収入科目一覧", :incomes %></li>
-      <li><%= link_to "固定費科目一覧", :fixedcosts %></li>
-      <li><%= link_to "変動費科目一覧", :variablecosts %></li>
-      <h2>収支確認</h2>
-      <li><%= link_to "収支確認画面", :balances %></li>
-    <% else %>
-      <li><%= link_to "ログイン", new_user_session_path, class: "login" %></li>
-      <li><%= link_to "新規登録", new_user_registration_path, class: "sign-up" %></li>
-    <% end %> 
-  </ul>
+  <h2 class="top-page">トップページ</h2>
+
+  <div class="contents">
+    <ul class="lists">
+      <% if user_signed_in? %>
+        <h2>科目選択</h2>
+        <li><%= link_to "収入科目一覧", :incomes, class: "btn lists-btn" %></li>
+        <li><%= link_to "固定費科目一覧", :fixedcosts, class: "btn lists-btn" %></li>
+        <li><%= link_to "変動費科目一覧", :variablecosts, class: "btn lists-btn" %></li>
+        <h2>収支確認</h2>
+        <li><%= link_to "収支確認画面", :balances, class: "btn lists-btn" %></li>
+      <% else %>
+      <% end %> 
+    </ul>
+  </div>
 </div>
- 
