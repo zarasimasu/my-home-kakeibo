@@ -61,7 +61,7 @@ table td {
   font-weight: bold;
 }
 
-p {
+.no-content {
   text-align: center;
   font-size: 25px;
 }
