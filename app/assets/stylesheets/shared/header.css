@@ -39,16 +39,10 @@
   color: #fff;
   background-color: #00bfff;
 }
+
 .btn--deepskyblue:hover {
   color: #fff;
   background: #00bfff;
-}
-
-
-
-.user-delete {
-  text-decoration: none;
-  color: #333333;
 }
 
 .btn--orange {
@@ -56,6 +50,7 @@
   color: #fff;
   background-color: #eb6100;
 }
+
 .btn--orange:hover {
   color: #fff;
   background: #f56500;

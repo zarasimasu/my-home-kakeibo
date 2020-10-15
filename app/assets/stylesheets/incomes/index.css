@@ -1,0 +1,63 @@
+.title {
+  background-color: #abced8;
+}
+
+.index-title {
+  text-align: center;
+}
+
+.new_value {
+  text-align: center;
+}
+
+.new-value-btn {
+  text-decoration: none;
+  color: #fff;
+  background-color: #eb6100;
+  margin-bottom: 20px;
+}
+
+.new-value-btn:hover {
+  color: #fff;
+  background: #f56500;
+}
+
+.balances_btn {
+  text-align: center;
+}
+
+.balance-btn {
+  text-decoration: none;
+  color: #fff;
+  background-color: #f3bf88;
+  margin-bottom: 20px;
+}
+
+.balance-btn:hover {
+  color: #fff;
+  background: #f3bf88;
+}
+
+table {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  border-collapse: collapse;
+  font-size: 20px;
+}
+
+table th, table td {
+  border: solid 1px black;
+}
+
+table th {
+  background-color: #fff5e5;
+  padding: 10px;
+}
+
+table td {
+  background-color: #f5f5f5;
+  padding: 3px 10px;
+  font-weight: bold;
+}
+
