@@ -1,13 +1,15 @@
 <%= render "shared/second-header"%>
 
-<h2>変動費一覧</h2>
+<div class="title">
+	<h2 class="index-title">変動費一覧</h2>
+</div>
 
 <div class="new_value">
-	<b><%= link_to "変動費の新規登録", :new_variablecost %></b>
+	<b><%= link_to "変動費の新規登録", :new_variablecost, class: "btn new-value-btn" %></b>
 </div>
 
 <div class="balances_btn">
-	<%= link_to "収支確認画面に移動する", :balances %>
+	<%= link_to "収支確認画面に移動する", :balances, class: "btn balance-btn" %>
 </div>
 
 <% if @variablecost.present? %>
@@ -38,7 +40,7 @@
 </table>
  
 <% else %>
-	<p>登録されている固定費がありません。</p>
+	<p class="no-content">登録されている固定費がありません。</p>
 <% end %>
 
 <%= render "shared/footer" %>
