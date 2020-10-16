@@ -1,40 +1,56 @@
-<h2>変動費情報編集画面</h2>
+<div class="title">
+	<h2 class="index-title">変動費情報編集画面</h2>
+</div>
 
-<%= form_with(model: @variablecost, local: true) do |f| %>
+<div class="input-contents">
+  <%= form_with(model: @variablecost, local: true) do |f| %>
 
-  <%= render "shared/variablecost_error_messages", model: f.object %>
+    <%= render "shared/variablecost_error_messages", model: f.object %>
+  
+    <div class="weight-bold-text">
+      カテゴリー
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.collection_select(:variablecost_category_id, VariablecostCategory.all, :id, :name, {}, {class:"select-box", id:"variablecost-category"}) %>
+    
+    <div class="weight-bold-text">
+      年月入力
+      <span class="indispensable">必須</span>
+    </div>
+    <div class="input-year-month">
+      <%= raw sprintf(
+                  f.date_select(
+                    :year_month,
+                    class:'select-year-month',
+                    use_month_numbers: true,
+                    start_year: 2019,
+                    end_year: Time.current.year,
+                    discard_day: true,
+                    date_separator: '%s'),
+                  "<p> 年 </p>" ) + "<p> 月 </p>" %>
+    </div>
+    
+    <div class="weight-bold-text">
+      金額入力
+      <span class="indispensable">必須</span>
+    </div>
+    <div class="value-weight-bold-text">
+      ※カンマなし、半角数字で入力
+    </div>
+    <div class="input-value">
+      <%= f.text_field :value, class: "money", size: 8 %><p>円</p>
+    </div>
+    
+    <div class="weight-bold-text">
+      備考
+      <span class="arbitrary">任意</span>
+    </div>
+    <%= f.text_field :description, class: "description" %>
 
-  <div class="category">
-    カテゴリー
-    <span class="indispensable">必須</span>
-  </div>
-  <%= f.collection_select(:variablecost_category_id, VariablecostCategory.all, :id, :name, {}, {class:"select-box", id:"fixedcost-category"}) %>
-  <div class="year-month">
-    年月入力
-    <span class="indispensable">必須</span>
-  </div>
-  <%= raw sprintf(
-              f.date_select(
-                :year_month,
-                class:'select-year-month',
-                use_month_numbers: true,
-                start_year: 2019,
-                end_year: Time.current.year,
-                discard_day: true,
-                date_separator: '%s'),
-              "<p> 年 </p>" ) + "<p> 月 </p>" %>
-  <div class="value">
-   金額入力
-   <span class="indispensable">必須</span>
-  </div>
-  <%= f.text_field :value, class: "money", size: 8 %>円
-  <div class="description">
-    備考
-    <span class="arbitrary">任意</span>
-  </div>
-  <%= f.text_field :description, size: 30 %>
-  <div class="entry">
-    <%= f.submit "登録する" ,class:"entry-btn" %>
-  </div>
-  <%= render "shared/footer" %>
-<% end %>
+    <div class="entry">
+      <%= f.submit "編集する" ,class:"entry-btn" %>
+    </div>
+  <% end %>
+</div>
+
+<%= render "shared/footer" %>
