@@ -67,10 +67,18 @@
 }
 
 .input-value {
+  display: flex;
+  flex-wrap: wrap;
   font-size: 20px;
   height: 30px;
   width: 100%;
   padding-left: 20px;
+}
+
+.input-value>p {
+  line-height: 1px;
+  padding: 0 5px;
+  font-size: 20px;
 }
 
 .money {
