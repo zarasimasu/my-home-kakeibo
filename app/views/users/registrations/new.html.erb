@@ -2,14 +2,14 @@
 
 <%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
 
-<%= render "users/users_shared/error_messages", resource: resource %>
-
 <div class='form-wrap'>
   <div class='form-header'>
     <h1 class='form-header-text'>
       ユーザー情報入力
     </h1>
   </div>
+
+  <%= render "users/users_shared/error_messages", resource: resource %>
 
   <div class="form-group">
     <div class='form-text-wrap'>

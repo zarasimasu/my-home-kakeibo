@@ -119,4 +119,8 @@
   height: 50px;
   font-size: 20px;
   margin-bottom: 4vh;
+  background:  #00bfff;
+  border: 1px solid  #00bfff;
+  cursor: pointer;
+  font-weight: bold;
 }

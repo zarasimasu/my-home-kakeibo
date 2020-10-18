@@ -10,7 +10,7 @@
 
 	<%= form_tag({controller: :balances, action: :show}, {method: :post}) do %>
 		<input type="month" name="year_month">
-		<input type="submit" value="確認する">
+		<input type="submit" value="確認する" class="form-year">
 	<% end %>
 
 	<h3>年間収支確認</h3>
@@ -22,7 +22,7 @@
 					<option value=<%= n.to_s %>><%= n %><p>年</p></option>
 				<% end %>
 			</select>
-		<input type="submit" value="確認する" >
+		<input type="submit" value="確認する" class="form-year">
 	<% end %>
 </div>
 
