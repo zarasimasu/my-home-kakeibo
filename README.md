@@ -23,7 +23,7 @@ https://my-home-kakeibo.herokuapp.com/
 
 トップページ
 
-https://gyazo.com/1e40d8824fe30dcf9098a59a268000d7
+(./top.png)
 
 
 # テーブル設計
