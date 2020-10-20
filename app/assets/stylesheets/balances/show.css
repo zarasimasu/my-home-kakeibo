@@ -1,0 +1,36 @@
+.balance {
+  text-align: center;
+  width: 100%;
+}
+
+.balance-value {
+  font-size: 30px;
+}
+
+.deficit {
+  color: red;
+}
+
+.surplus {
+  color: blue;
+}
+
+.balance-money {
+  font-size: 25px;
+  margin-top: 30px;
+}
+
+.no-year {
+  font-size: 35px;
+  color: red;
+}
+
+.income-total {
+  color: #228b22;
+  font-size: 25px;
+}
+
+.spending-total {
+  color: #bb5548;
+  font-size: 25px;
+}

@@ -1,25 +1,38 @@
-<h2><%= @year_month %>月 月次収支確認</h2>
+<%= render "shared/second-header"%>
 
-<div class="balances_btn">
-  <%= link_to "収支確認画面に戻る", :balances %>
+<div class="title">
+  <h2 class="index-title"><%= @year_month %>月 月次収支確認</h2>
 </div>
 
-<% if @year_month.present? && @fixedcost.present? && @variablecost.present? %>
-  <h2>収支結果</h2>
-  <% if @balance < 0 %>
-    <b><%= @year_month %>月の収支差は<%= @balance.to_s(:delimited) %>円の赤字です！！</b>
-  <% elsif @balance == 0 %>
-    <b><%= @year_month %>月の収支差は±<%= @balance %>円です！！</b>
-  <% else %>
-    <b><%= @year_month %>月の収支差は<%= @balance.to_s(:delimited) %>円の黒字です！！</b>
-  <% end %>
+<div class="balances_btn">
+  <%= link_to "収支確認画面に戻る", :balances, class: "btn balance-btn" %>
+</div>
 
-  <div class="balance">
-    <b>収支差:<%= @balance.to_s(:delimited) %> 円</b>
-  </div>
-<% elsif !@year_month.present? %>
-  <b>年月を選択してください</b>
-<% end %>
+<div class="balance">
+  <% if @year_month.present? && @fixedcost.present? && @variablecost.present? %>
+    <div class="title">
+      <h2 class="index-title">収支結果</h2>
+    </div>
+    <% if @balance < 0 %>
+      <b class="balance-value"><%= @year_month %>月の収支差は<span class="deficit"><%= @balance.to_s(:delimited) %></span>円の赤字です！！</b>
+      <div class="balance-money">
+        <b>収支差: <span class="deficit"><%= @balance.to_s(:delimited) %></span> 円</b>
+      </div>
+    <% elsif @balance == 0 %>
+      <b class="balance-value"><%= @year_month %>月の収支差は±<%= @balance %>円です！！</b>
+      <div class="balance-money">
+        <b>収支差: <%= @balance.to_s(:delimited) %> 円</b>
+      </div>
+    <% else %>
+      <b class="balance-value"><%= @year_month %>月の収支差は<span class="surplus"><%= @balance.to_s(:delimited) %></span>円の黒字です！！</b>
+      <div class="balance-money">
+        <b>収支差: <span class="surplus"><%= @balance.to_s(:delimited) %></span> 円</b>
+      </div>
+    <% end %>
+  <% elsif !@year_month.present? %>
+    <b class="no-year">年月を選択してください</b>
+  <% end %>
+</div>
 
 <h3>収入</h3>
 
@@ -40,7 +53,7 @@
           <td><%= i.description %></td>
         </tr>
       <% end %>
-      <tr>
+      <tr class="income-total">
         <td><b>収入合計</b></td>
         <td><b><%= @income_total.to_s(:delimited) %>円</b></td>
       </tr>
@@ -69,7 +82,7 @@
           <td><%= i.description %></td>
         </tr>
       <% end %>
-      <tr>
+      <tr class="spending-total">
         <td><b>固定費合計</b></td>
         <td><b><%= @fixedcost_total.to_s(:delimited) %>円</b></td>
       </tr>
@@ -98,7 +111,7 @@
           <td><%= i.description %></td>
         </tr>
       <% end %>
-      <tr>
+      <tr class="spending-total">
         <td><b>変動費合計</b></td>
         <td><b><%= @variablecost_total.to_s(:delimited) %>円</b></td>
       </tr>
