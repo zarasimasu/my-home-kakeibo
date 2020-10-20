@@ -10,6 +10,11 @@
 
 https://my-home-kakeibo.herokuapp.com/
 
+ログイン情報（テスト用）
+
+- Eメール : sample@sample.com
+- パスワード : hitomi0722
+
 
 # テーブル設計
 
