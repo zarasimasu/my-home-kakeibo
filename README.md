@@ -23,11 +23,11 @@ https://my-home-kakeibo.herokuapp.com/
 
 ### トップページ
 
-![画像名](./top.png)
+![トップ画像](./top.png)
 
 ### 科目情報入力登録画面
 
-![画像名](./input.mp4)
+![情報入力画面](./input.gif)
 
 
 # テーブル設計
