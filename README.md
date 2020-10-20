@@ -23,7 +23,7 @@ https://my-home-kakeibo.herokuapp.com/
 
 トップページ
 
-(./top.png)
+![画像名](./top.png)
 
 
 # テーブル設計
