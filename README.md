@@ -30,6 +30,33 @@ https://my-home-kakeibo.herokuapp.com/
 ![情報入力画面](./input.gif)
 
 
+# 使用技術（開発環境）
+
+## バックエンド
+
+Ruby,Ruby on Rails
+
+## フロントエンド
+
+HTML,CSS,JavaScript
+
+## データベース
+
+MySQL,SequelPro
+
+## ソース管理
+
+GitHub,GitHubDesktop
+
+## テスト
+
+RSpec
+
+## エディタ
+
+VSCode
+
+
 # テーブル設計
 
 ## users テーブル
