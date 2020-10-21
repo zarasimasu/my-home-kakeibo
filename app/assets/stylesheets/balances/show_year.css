@@ -1,0 +1,42 @@
+.year-total {
+  text-align: center;
+  background-color: #f5f5f5;
+  width: 100%;
+}
+
+.year-total-income {
+  padding: 20px;
+  color: #228b22;
+  font-size: 25px;
+}
+
+.income-chart_title {
+  font-size: 25px;
+  border: 1px solid #ccc;
+  width: 300px;
+  margin: 0 auto;
+  background-color: #87ceeb;
+}
+
+.chart {
+  margin: 0 20px;
+}
+
+.value-chart {
+  width: 800px;
+  height: 300px;
+}
+
+.year-total-spending {
+  padding: 20px;
+  color: #bb5548;
+  font-size: 25px;
+}
+
+.spending-chart_title {
+  font-size: 25px;
+  border: 1px solid #ccc;
+  width: 300px;
+  margin: 0 auto;
+  background-color: #c97586;
+}
