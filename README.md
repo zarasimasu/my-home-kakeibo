@@ -29,6 +29,14 @@ https://my-home-kakeibo.herokuapp.com/
 
 ![情報入力画面](./input.gif)
 
+### 月次収支確認画面
+
+![月次収支確認](./month.gif)
+
+### 年間収支確認画面
+
+![年間収支確認](./year.gif)
+
 
 # 工夫したポイント
 
