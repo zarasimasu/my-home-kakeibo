@@ -135,3 +135,15 @@ VSCode
 ### Association
 
 - belongs_to :user
+
+## savings テーブル
+
+| Column        | Type       | Options                        |
+| --------------| ---------- | ------------------------------ |
+| saving        | integer    | null: false                    |
+| day           | date       | null: false                    |
+| user          | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
