@@ -10,4 +10,5 @@ class User < ApplicationRecord
   has_many :incomes, dependent: :destroy
   has_many :fixedcosts, dependent: :destroy
   has_many :variablecosts, dependent: :destroy
+  has_many :savings, dependent: :destroy
 end
