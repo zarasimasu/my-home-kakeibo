@@ -18,6 +18,15 @@ class SavingsController < ApplicationController
     end
   end
 
+  def destroy
+    @saving = Saving.find(params[:id])
+		if @saving.destroy
+      redirect_to savings_path
+    else
+      render :index
+    end
+	end
+
   private
 
 	def saving_params
