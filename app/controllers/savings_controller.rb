@@ -10,6 +10,17 @@ class SavingsController < ApplicationController
   end
 
   def create
+    @saving = Saving.new(saving_params)
+    if @saving.save
+      redirect_to savings_path
+    else
+      render :new
+    end
   end
 
+  private
+
+	def saving_params
+		params.require(:saving).permit(:saving, :day).merge(user_id: current_user.id)
+	end
 end
