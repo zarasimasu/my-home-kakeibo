@@ -1,0 +1,43 @@
+<div class="title">
+	<h2 class="index-title">貯金額入力画面</h2>
+</div>
+
+<div class="input-contents">
+  <%= form_with(model: @saving, local: true) do |f| %>
+
+    <%= render "shared/saving_error_messages", model: f.object %>
+
+    <div class="weight-bold-text">
+      年月入力
+      <span class="indispensable">必須</span>
+    </div>
+    <div class="input-year-month">
+      <%= raw sprintf(
+                  f.date_select(
+                    :day,
+                    class:'select-year-month',
+                    use_month_numbers: true,
+                    start_year: 2019,
+                    end_year: Time.current.year,
+                    date_separator: '%s'),
+                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+    </div>
+    
+    <div class="weight-bold-text">
+      金額入力
+      <span class="indispensable">必須</span>
+    </div>
+    <div class="value-weight-bold-text">
+      ※カンマなし、半角数字で入力
+    </div>
+    <div class="input-value">
+      <%= f.text_field :saving, class: "money", size: 12 %><p>円</p>
+    </div>
+
+    <div class="entry">
+      <%= f.submit "登録する" ,class:"entry-btn" %>
+    </div>
+  <% end %>
+</div>
+
+<%= render "shared/footer" %>
