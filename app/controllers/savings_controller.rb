@@ -5,6 +5,7 @@ class SavingsController < ApplicationController
 
   def index
     @savings = current_user.savings.all.order(id: "DESC")
+    @saving = current_user.savings.last(1).pluck(:saving)
   end
 
   def new
