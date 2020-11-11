@@ -9,6 +9,15 @@
 </div>
 
 <% if @savings.present? %>
+<div class="chart">
+	<%= line_chart @savings.group(:day).sum(:saving),
+	label: "貯金額",
+	xtitle: "Day",
+	ytitle: "金額",
+	thousands: ","
+	%>
+</div>
+
 <table>
 	<thead>
 		<tr>
