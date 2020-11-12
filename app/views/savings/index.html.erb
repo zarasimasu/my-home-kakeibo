@@ -12,6 +12,9 @@
 
 <h4 class="saving-value">現在の貯金額は<%= @saving[0].to_s(:delimited) %>円です!</h4>
 
+<div class="saving-chart-title">
+	<b>貯金額推移グラフ</b>
+</div>
 <div class="saving-chart">
 	<%= line_chart @savings.group(:day).sum(:saving),
 	label: "貯金額",

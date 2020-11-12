@@ -1,3 +1,12 @@
+.saving-chart-title {
+  text-align: center;
+  font-size: 25px;
+  border: 1px solid #ccc;
+  width: 300px;
+  margin: 0 auto;
+  background-color: #87ceeb;
+}
+
 .saving-chart {
   margin: 0 20px 30px;
 }
